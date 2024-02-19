@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlarmClock - Status</title>
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="css.css" type="text/css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    
+    <div class="sidebar">
+        <div class="top">
+            <div class="logo">
+                <i class='bx bx-alarm'></i>
+                <span class="header">AlarmClock</span>
+            </div>
+            <i class="bx bx-menu" id="btn"></i>
+        </div>
+        <ul>
+            <li>
+                <a href="#">
+                    <i class='bx bx-info-circle' ></i>
+                    <span class="nav-item">Overview</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-alarm-add' ></i>
+                    <span class="nav-item">Alarms</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cog' ></i>
+                    <span class="nav-item">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-message-dots' ></i>
+                    <span class="nav-item">Logs</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-help-circle'></i>
+                    <span class="nav-item">About</span>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="main-content">
+        <div class="top">
+            <div class="timeoverview">
+                <h2>Current Time</h2>
+                <div class="timecounter">
+                    00:00 PM
+                </div>
+            </div>
+            <div class="wifioverview">
+                <h2>Wifi</h2>
+                <p>Frank</p>
+            </div>
+        </div>
+        <div class="nextalarmtime">
+            <div class="nextalarmtimetext">
+                <h2>Next Alarm</h2>
+                <p>1/1/1 00:00 PM</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+
+    let btn = document.querySelector("#btn");
+    let sidebar = document.querySelector(".sidebar");
+
+    btn.onclick = function () {
+        sidebar.classList.toggle("active");
+    }
+
+</script>
+
+</html>
