@@ -82,23 +82,30 @@ String nextAlarmTime() {
       {
         case 1:
           dayIndexString = "Monday";
+          break;
         case 2:
           dayIndexString = "Tuesday";
+          break;
         case 3:
           dayIndexString = "Wednesday";
+          break;
         case 4:
           dayIndexString = "Thursday";
+          break;
         case 5:
           dayIndexString = "Friday";
+          break;
         case 6:
           dayIndexString = "Saturday";
+          break;
         case 7:
           dayIndexString = "Sunday";
+          break;
         default:
           dayIndexString = "";
       }
       
-      return dayIndexString + "At" + GetTimeProcessed(soonestTime);
+      return dayIndexString + " at " + GetTimeProcessed(soonestTime);
     }
   }
 

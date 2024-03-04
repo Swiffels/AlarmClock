@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlarmClock - Status</title>
+
+    <script src="alarms_script.js"></script>
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="css.css" type="text/css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    
+    <div class="sidebar">
+        <div class="top">
+            <div class="logo">
+                <i class='bx bx-alarm'></i>
+                <span class="header">AlarmClock</span>
+            </div>
+            <i class="bx bx-menu" id="btn"></i>
+        </div>
+        <ul>
+            <li>
+                <a href="overview_html.html">
+                    <i class='bx bx-info-circle' ></i>
+                    <span class="nav-item">Overview</span>
+                </a>
+            </li>
+            <li>
+                <a href="alarms_html.html">
+                    <i class='bx bx-alarm-add' ></i>
+                    <span class="nav-item">Alarms</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cog' ></i>
+                    <span class="nav-item">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-message-dots' ></i>
+                    <span class="nav-item">Logs</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-help-circle'></i>
+                    <span class="nav-item">About</span>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+    <div id="modalOverlay" class="modalOverlay"></div>
+
+    <div class="main-content">
+        <div id="alarmoverlay" class="alarmoverlay">
+        </div>
+        <div class="popup" id="popup">
+            <form class="popupContent" id="popupContent" action="/setAlarm" method="post">
+                <div class="popupForm">
+                    <div>
+                        <p>Alarm Time</p>
+                        <input type="time" name="alarmTime" id="alarmTimeTime">
+                    </div>
+                    <div>
+                        <fieldset>
+                            <legend>Select Days of the Week</legend>
+                            <label><input type="checkbox" name="daysOfWeek" id="daysOfWeekMonday" value="Monday"> Monday</label>
+                            <label><input type="checkbox" name="daysOfWeek" id="daysOfWeekTuesday" value="Tuesday"> Tuesday</label>
+                            <label><input type="checkbox" name="daysOfWeek" id="daysOfWeekWednesday" value="Wednesday"> Wednesday</label>
+                            <label><input type="checkbox" name="daysOfWeek" id="daysOfWeekThursday" value="Thursday"> Thursday</label>
+                            <label><input type="checkbox" name="daysOfWeek" id="daysOfWeekFriday" value="Friday"> Friday</label>
+                            <label><input type="checkbox" name="daysOfWeek" id="daysOfWeekSaturday" value="Saturday"> Saturday</label>
+                            <label><input type="checkbox" name="daysOfWeek" id="daysOfWeekSunday" value="Sunday"> Sunday</label>
+                          </fieldset>
+                    </div>
+                    <div>
+                        <label>Alarm Amount:</label>
+                        <input type="number" name="alarmAmount" id="alarmAmountNumber" min="1" max="2048" style="text-align: right;">
+                    </div>
+                    <div>
+                        <label>Max Duration:</label>
+                        <input type="number" name="alarmMaxDuration" id="maxDurationNumber" min="1" max="86400" style="text-align: right;">
+                    </div>
+                    <div>
+                        <label>Time Between:</label>
+                        <input type="number" name="timeBetween" id="timeBetweenNumber" min="0" max="86400" style="text-align: right;">
+                    </div>
+                </div>
+                <div class="popupbuttonselection">
+                    <input type="submit" value="Save" id="saveEditPopup">
+                    <button id="closeEditPopup" type="button">Close</button> 
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+<script>
+
+    let btn = document.querySelector("#btn");
+    let sidebar = document.querySelector(".sidebar");
+
+    btn.onclick = function () {
+        sidebar.classList.toggle("active");
+    }
+
+</script>
+
+</html>

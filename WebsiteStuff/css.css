@@ -1,3 +1,13 @@
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 *{
     font-family: 'Open Sans', sans-serif;
     margin: 0;
@@ -104,7 +114,7 @@
     padding-left: 0px;
 }
 
-.main-content .top, .main-content .nextalarmtime{
+.main-content .top, .main-content .nextalarmtime, .main-content .alarmoverlay{
     display: flex;
     padding: 15px 0px 0px 0px;
     justify-content: space-around;
@@ -122,8 +132,7 @@
 }
 
 .main-content .nextalarmtime > div{
-    background-color: #a1a1a1;
-    height: 15vh;
+    height: 25vh;
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -140,4 +149,98 @@
 
 .main-content > div > div > p{
     font-size: 5vw;
+}
+
+.alarmitem{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #a1a1a1;
+    border: 1.5px solid #000000;
+    min-height: 50px;
+    max-height: 120px;
+}
+
+.main-content .alarmoverlay > div > div{
+    height: 15vh;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.alarmoverlayinfo{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 60%;
+    align-items:center;
+    justify-items: center;
+}
+
+.alarmoverlayinfo > div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.alarmoverlayheaders > h2, .alarmoverlaytimes > h2{
+    font-size: 2.75vw;
+}
+
+.alarmoverlaytimes > p, .alarmoverlayheaders> p{
+    font-size: 2.25vw;
+}
+
+.alarmitembuttons{
+    padding: 0px 0px 3.75vh 0px;
+}
+
+.alarmoverlay{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.alarmoverlaymaindiv{
+    width: 100%;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #4d4d4d; */
+}
+
+.alarmitembuttons > button{
+    min-width: 8vw;
+    height: 3.75vw; /* Example fixed height in pixels */
+    font-size: 2vw; /* Adjust font size as needed */
+    margin: 0px 10px 0px 10px; /* Optional: If you want space between buttons */
+    padding: 0px 0px 0px 0px; /* Adjust padding to control button size and text positioning */
+}
+
+.popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+    background-color: #b6b6b6;
+    border-radius: 7.5px;
+    border: 1px solid #a5a5a5;
+    padding: 20px;
+    z-index: 100;
+    display: none;
+}
+
+.popupForm > div{
+    display: flex;
+}
+
+.modalOverlay{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.4);
 }

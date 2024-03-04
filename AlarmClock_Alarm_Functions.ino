@@ -327,8 +327,8 @@ void saveAlarms() {
     JsonObject alarmObject = alarmArray.createNestedObject();
 
     alarmObject["time"] = alarms[i].alarmTime;
-    alarmObject["amount"] = alarms[i].alarmAmount;
     alarmObject["days"] = alarms[i].alarmDays;
+    alarmObject["amount"] = alarms[i].alarmAmount;
     alarmObject["duration"] = alarms[i].alarmMaxDuration;
     alarmObject["between"] = alarms[i].timeBetween;
 
