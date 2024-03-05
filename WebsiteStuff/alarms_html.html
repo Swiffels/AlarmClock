@@ -26,13 +26,13 @@
         </div>
         <ul>
             <li>
-                <a href="overview_html.html">
+                <a href="/">
                     <i class='bx bx-info-circle' ></i>
                     <span class="nav-item">Overview</span>
                 </a>
             </li>
             <li>
-                <a href="alarms_html.html">
+                <a href="/alarms">
                     <i class='bx bx-alarm-add' ></i>
                     <span class="nav-item">Alarms</span>
                 </a>
@@ -64,8 +64,9 @@
     <div class="main-content">
         <div id="alarmoverlay" class="alarmoverlay">
         </div>
+        <button class="addAlarmButton" id="addAlarmButton">Add Alarm</button>
         <div class="popup" id="popup">
-            <form class="popupContent" id="popupContent" action="/setAlarm" method="post">
+            <form class="popupContent" id="popupContent">
                 <div class="popupForm">
                     <div>
                         <p>Alarm Time</p>
@@ -74,30 +75,30 @@
                     <div>
                         <fieldset>
                             <legend>Select Days of the Week</legend>
-                            <label><input type="checkbox" name="daysOfWeek" id="daysOfWeekMonday" value="Monday"> Monday</label>
-                            <label><input type="checkbox" name="daysOfWeek" id="daysOfWeekTuesday" value="Tuesday"> Tuesday</label>
-                            <label><input type="checkbox" name="daysOfWeek" id="daysOfWeekWednesday" value="Wednesday"> Wednesday</label>
-                            <label><input type="checkbox" name="daysOfWeek" id="daysOfWeekThursday" value="Thursday"> Thursday</label>
-                            <label><input type="checkbox" name="daysOfWeek" id="daysOfWeekFriday" value="Friday"> Friday</label>
-                            <label><input type="checkbox" name="daysOfWeek" id="daysOfWeekSaturday" value="Saturday"> Saturday</label>
-                            <label><input type="checkbox" name="daysOfWeek" id="daysOfWeekSunday" value="Sunday"> Sunday</label>
+                            <label><input type="checkbox" name="daysOfWeek" id="daysOfWeekMonday" value="M"> Monday</label>
+                            <label><input type="checkbox" name="daysOfWeek" id="daysOfWeekTuesday" value="T"> Tuesday</label>
+                            <label><input type="checkbox" name="daysOfWeek" id="daysOfWeekWednesday" value="W"> Wednesday</label>
+                            <label><input type="checkbox" name="daysOfWeek" id="daysOfWeekThursday" value="H"> Thursday</label>
+                            <label><input type="checkbox" name="daysOfWeek" id="daysOfWeekFriday" value="F"> Friday</label>
+                            <label><input type="checkbox" name="daysOfWeek" id="daysOfWeekSaturday" value="S"> Saturday</label>
+                            <label><input type="checkbox" name="daysOfWeek" id="daysOfWeekSunday" value="U"> Sunday</label>
                           </fieldset>
                     </div>
                     <div>
                         <label>Alarm Amount:</label>
-                        <input type="number" name="alarmAmount" id="alarmAmountNumber" min="1" max="2048" style="text-align: right;">
+                        <input type="number" name="alarmAmount" id="alarmAmountNumber" min="1" max="2048" value="3" style="text-align: right;">
                     </div>
                     <div>
                         <label>Max Duration:</label>
-                        <input type="number" name="alarmMaxDuration" id="maxDurationNumber" min="1" max="86400" style="text-align: right;">
+                        <input type="number" name="maxDuration" id="maxDurationNumber" min="1" max="86400" value="3600" style="text-align: right;">
                     </div>
                     <div>
                         <label>Time Between:</label>
-                        <input type="number" name="timeBetween" id="timeBetweenNumber" min="0" max="86400" style="text-align: right;">
+                        <input type="number" name="timeBetween" id="timeBetweenNumber" min="0" max="86400" value="30" style="text-align: right;">
                     </div>
                 </div>
                 <div class="popupbuttonselection">
-                    <input type="submit" value="Save" id="saveEditPopup">
+                    <input type="button" value="Save" id="saveEditPopup">
                     <button id="closeEditPopup" type="button">Close</button> 
                 </div>
             </form>

@@ -1,0 +1,18 @@
+{
+    "alarms": [
+        {
+            "time": 54060,
+            "amount": 5,
+            "days": 1,
+            "duration": 1800,
+            "between": 10
+        },
+        {
+            "time": 54120,
+            "amount": 5,
+            "days": 1100010,
+            "duration": 1800,
+            "between": 10
+        }
+    ]
+}

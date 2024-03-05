@@ -105,6 +105,8 @@ input[type="number"] {
 
 .main-content{
     position: relative;
+    display: flex;
+    flex-direction: column;
     background-color: #c4c4c4;
     min-height: 100vh;
     top: 0;
@@ -157,7 +159,7 @@ input[type="number"] {
     align-items: center;
     background-color: #a1a1a1;
     border: 1.5px solid #000000;
-    min-height: 50px;
+    min-height: 100px;
     max-height: 120px;
 }
 
@@ -212,11 +214,12 @@ input[type="number"] {
 }
 
 .alarmitembuttons > button{
-    min-width: 8vw;
+    min-width: 8.5vw;
     height: 3.75vw; /* Example fixed height in pixels */
     font-size: 2vw; /* Adjust font size as needed */
     margin: 0px 10px 0px 10px; /* Optional: If you want space between buttons */
     padding: 0px 0px 0px 0px; /* Adjust padding to control button size and text positioning */
+    border-radius: .5vw;
 }
 
 .popup{
@@ -243,4 +246,29 @@ input[type="number"] {
     height: 100%;
     z-index: 99;
     background-color: rgba(0, 0, 0, 0.4);
+}
+
+.addAlarmButton{
+    align-self: center;
+    min-width: 10vw;
+    height: 3.25vw; /* Example fixed height in pixels */
+    font-size: 1.5vw; /* Adjust font size as needed */
+    margin: 2.5vh 0px 0px 10px; /* Optional: If you want space between buttons */
+    padding: 0px 0px 0px 0px; /* Adjust padding to control button size and text positioning */
+    border-radius: .5vw;
+}
+
+.addAlarmButton, .alarmitembuttons > button{
+    background-color: #e6e6e6;
+    border: #212121 1.5px solid;
+}
+
+.addAlarmButton:hover, .alarmitembuttons > button:hover{
+    background-color: #d6d6d6;
+    border: #212121 1.75px solid;
+}
+
+.addAlarmButton:active, .alarmitembuttons > button:active{
+    background-color: #c1c1c1;
+    border: #212121 1.75px solid;
 }

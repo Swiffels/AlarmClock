@@ -171,79 +171,129 @@ void resetAlarmVariables() {
 
 void handleSetAlarm() {
 
-  Serial.println("Setting New Alarm");
+  Serial.println("Setting Alarm");
 
+  String alarmIdString = server.arg("alarmId");
   String alarmTimeString = server.arg("alarmTime");
   String alarmDaysString = server.arg("alarmDays");
   String alarmAmount = server.arg("alarmAmount");
   String alarmMaxDuration = server.arg("maxDuration");
   String timeBetween = server.arg("timeBetween");
 
+  int alarmId = alarmIdString.toInt();
   int alarmTime = alarmTimeString.toInt();
   int alarmDays = 0;
 
-  String message = "Alarm Set with time: " + alarmTimeString + " days: " + alarmDaysString + " amount: " + alarmAmount + " max duration: " + alarmMaxDuration + " time between: " + timeBetween;
+  String message;
 
-  if (nextAlarmIndex >= MAX_ALARMS) {
+  if(alarmIdString == ""){
 
-    server.send(429, "text/plain", "Too Many Alarms Set");
-    return;
-  }
-
-  if (alarmOn == true) {
-
-    server.send(409, "text/plain", "Turn Off Active Alarm Before Adding A New Alarm");
-    return;
-  }
-
-  for (int i = 0; i < nextAlarmIndex; i++) {
-
-    if (alarmTime == alarms[i].alarmTime) {
-
-      server.send(409, "text/plain", "There Is Already A Alarm Set For This Time");
+    if (nextAlarmIndex >= MAX_ALARMS) {
+  
+      server.send(429, "text/plain", "Too Many Alarms Set");
       return;
-
     }
-
-  }
-
-  for (int i = 0; i < alarmDaysString.length(); i++) {
-
-    switch (alarmDaysString[i]) {
-      case 'M':
-        alarmDays += 1;
-        break;
-      case 'T':
-        alarmDays += 10;
-        break;
-      case 'W':
-        alarmDays += 100;
-        break;
-      case 'R':
-        alarmDays += 1000;
-        break;
-      case 'F':
-        alarmDays += 10000;
-        break;
-      case 'S':
-        alarmDays += 100000;
-        break;
-      case 'U':
-        alarmDays += 1000000;
-        break;
+  
+    if (alarmOn == true) {
+  
+      server.send(409, "text/plain", "Turn Off Active Alarm Before Adding A New Alarm");
+      return;
     }
+  
+    for (int i = 0; i < nextAlarmIndex; i++) {
+  
+      if (alarmTime == alarms[i].alarmTime) {
+  
+        server.send(409, "text/plain", "There Is Already A Alarm Set For This Time");
+        return;
+  
+      }
+  
+    }
+  
+    for (int i = 0; i < alarmDaysString.length(); i++) {
+  
+      switch (alarmDaysString[i]) {
+        case 'M':
+          alarmDays += 1;
+          break;
+        case 'T':
+          alarmDays += 10;
+          break;
+        case 'W':
+          alarmDays += 100;
+          break;
+        case 'R':
+          alarmDays += 1000;
+          break;
+        case 'F':
+          alarmDays += 10000;
+          break;
+        case 'S':
+          alarmDays += 100000;
+          break;
+        case 'U':
+          alarmDays += 1000000;
+          break;
+      }
+  
+    }
+  
+    alarms[nextAlarmIndex].id = nextAlarmIndex;
+    alarms[nextAlarmIndex].alarmTime = alarmTime;
+    alarms[nextAlarmIndex].alarmDays = alarmDays;
+    alarms[nextAlarmIndex].alarmAmount = alarmAmount.toInt();
+    alarms[nextAlarmIndex].alarmMaxDuration = alarmMaxDuration.toInt();
+    alarms[nextAlarmIndex].timeBetween = timeBetween.toInt();
+  
+    nextAlarmIndex++;
 
+    Serial.println("Setting New Alarm");
+
+    message = "Alarm Set with time: " + alarmTimeString + " days: " + alarmDaysString + " amount: " + alarmAmount + " max duration: " + alarmMaxDuration + " time between: " + timeBetween;
+    
+  }else{
+
+    for (int i = 0; i < alarmDaysString.length(); i++) {
+  
+      switch (alarmDaysString[i]) {
+        case 'M':
+          alarmDays += 1;
+          break;
+        case 'T':
+          alarmDays += 10;
+          break;
+        case 'W':
+          alarmDays += 100;
+          break;
+        case 'R':
+          alarmDays += 1000;
+          break;
+        case 'F':
+          alarmDays += 10000;
+          break;
+        case 'S':
+          alarmDays += 100000;
+          break;
+        case 'U':
+          alarmDays += 1000000;
+          break;
+      }
+  
+    }
+  
+    alarms[alarmId].alarmTime = alarmTime;
+    alarms[alarmId].alarmDays = alarmDays;
+    alarms[alarmId].alarmAmount = alarmAmount.toInt();
+    alarms[alarmId].alarmMaxDuration = alarmMaxDuration.toInt();
+    alarms[alarmId].timeBetween = timeBetween.toInt();
+
+    Serial.println("Editing Alarm");
+
+    message = "Alarm edited to time: " + alarmTimeString + " days: " + alarmDaysString + " amount: " + alarmAmount + " max duration: " + alarmMaxDuration + " time between: " + timeBetween;
+    
   }
-
-  alarms[nextAlarmIndex].id = nextAlarmIndex;
-  alarms[nextAlarmIndex].alarmTime = alarmTime;
-  alarms[nextAlarmIndex].alarmDays = alarmDays;
-  alarms[nextAlarmIndex].alarmAmount = alarmAmount.toInt();
-  alarms[nextAlarmIndex].alarmMaxDuration = alarmMaxDuration.toInt();
-  alarms[nextAlarmIndex].timeBetween = timeBetween.toInt();
-
-  nextAlarmIndex++;
-
+  
   server.send(200, "text/plain", message);  // Send a response back to the client
 
   saveAlarms();
