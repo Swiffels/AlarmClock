@@ -16,7 +16,7 @@ input[type="number"] {
 }
 
 .sidebar{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
@@ -59,10 +59,13 @@ input[type="number"] {
     margin-right: 5px;
     margin-left: 12px;
     border-radius: 0.8rem;
+    visibility: hidden;
 }
 
 .sidebar.active .top .logo{
     opacity: 1;
+    transition: opacity .3s .15s;
+    visibility: visible;
 }
 
 .sidebar ul li{
@@ -97,10 +100,12 @@ input[type="number"] {
 
 .sidebar .nav-item{
     opacity: 0;
+    display: none;
 }
 
 .sidebar.active .nav-item{
     opacity: 1;
+    display: contents;
 }
 
 .main-content{
