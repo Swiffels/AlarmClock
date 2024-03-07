@@ -35,15 +35,16 @@ input[type="number"] {
     position: absolute;
     color: #f5f5f5;
     top: .47rem;
-    left: 50%;
+    left: 36.12%;
     font-size: 1.5rem;
     line-height: 80px;
-    transform: translateX(-50%);
+    /* transform: translateX(-50%); */
     cursor: pointer;
+    transition: all 0.5s ease;
 }
 
 .sidebar.active #btn{
-    left: 90%;
+    left: 82%;
 }
 
 .sidebar .top .logo{
@@ -53,18 +54,22 @@ input[type="number"] {
     width: 100%;
     align-items: center;
     pointer-events: none;
-    opacity: 0;
     font-size: 1.3rem;
     font: 800;
     margin-right: 5px;
     margin-left: 12px;
     border-radius: 0.8rem;
-    visibility: hidden;
 }
 
-.sidebar.active .top .logo{
+.sidebar .top .logo, .sidebar ul li a span.nav-item{
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0s linear 0.1s;
+}
+
+.sidebar.active .top .logo, .sidebar.active ul li a span.nav-item{
     opacity: 1;
-    transition: opacity .3s .15s;
+    transition: opacity .3s linear 0.3s;
     visibility: visible;
 }
 
@@ -98,7 +103,7 @@ input[type="number"] {
     line-height: 50px;
 }
 
-.sidebar .nav-item{
+/* .sidebar .nav-item{
     opacity: 0;
     display: none;
 }
@@ -106,7 +111,7 @@ input[type="number"] {
 .sidebar.active .nav-item{
     opacity: 1;
     display: contents;
-}
+} */
 
 .main-content{
     position: relative;
@@ -276,4 +281,16 @@ input[type="number"] {
 .addAlarmButton:active, .alarmitembuttons > button:active{
     background-color: #c1c1c1;
     border: #212121 1.75px solid;
+}
+
+.logbox{
+    width: 90%;
+    height: 80vh;
+    max-height: 100vh;
+    background-color: #f1f1f1;
+    border: #212121 solid 1px;
+    border-radius: .75vw;
+    display: flex;
+    align-self: center;
+    margin-top: 20px;
 }
