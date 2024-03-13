@@ -284,13 +284,59 @@ input[type="number"] {
 }
 
 .logbox{
-    width: 90%;
-    height: 80vh;
+    min-width: 20vw;
+    width: 70vw;
+    max-width: 600px;
+    height: 50vh;
     max-height: 100vh;
     background-color: #f1f1f1;
-    border: #212121 solid 1px;
+    border: #212121 solid 1.25px;
     border-radius: .75vw;
-    display: flex;
+    margin-top: 60px;
+    position: relative;
     align-self: center;
-    margin-top: 20px;
+    flex-direction: column;
+    display: flex;
+}
+
+.logboxconsole{
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 50vh;
+    max-height: 100vh;
+}
+
+.logboxtitle{
+    position: absolute;
+    transform: translateX(5%);
+    top: -25px;
+    text-align: left;
+    font-size: 20px;
+    white-space: nowrap;
+}
+
+.logboxtimestamp{
+    color: #3d5f64;
+    padding-left: 5px;
+    font-size: 10px;
+}
+
+.logboxmessage{
+    font-size: 12px;
+    padding-left: 5px;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.logboxlevel{
+    font-size: 10px;
+    padding-left: 5px;
+    color: #0a7f91;
+    font-weight: bold;
+}
+
+.logboxentry{
+    line-height: 15px;
+    max-height: 30px;
 }
