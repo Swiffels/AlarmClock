@@ -1,3 +1,1 @@
-Good Morning
-And
-Good Night
+This is a IoT Webserver based alarm clock that creates its own connection to then connect to a home wifi through which it then hosts a webserver which it connects and sends info to and from the alarm clock with get and post commands in order to set alarm info and to set new alarms, new sounds, and other settings. It also has different modes to make it take more time to turn off to help people who have trouble waking up in the mornings(me).
